@@ -8,6 +8,10 @@ get http://localhost:3000/login
 get http://localhost:3000/login
 Authorization: letmein
 
+### protected login
+get http://localhost:3000/login/admin
+Authorization: letmein
+
 ### random POST call
 post http://localhost:3000/whatever
 
