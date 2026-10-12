@@ -12,6 +12,10 @@ Authorization: letmein
 get http://localhost:3000/login/admin
 Authorization: letmein
 
+### protected login
+post http://localhost:3000/login/admin
+Authorization: letmein
+
 ### random POST call
 post http://localhost:3000/whatever
 

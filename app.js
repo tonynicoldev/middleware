@@ -3,8 +3,9 @@ const app = express()
 const PORT = 3000
 
 // Convention to add app.use calls together as a group at the top of the file to clearly indicate the order of middleware
-// app.use(checkPassword)           // Add this function to the middleware stack for all routes
-// app.use('/login', checkPassword) // Add this function to the middleware stack for /login route and children such as /login/admin
+ app.use(checkPassword)           // Add this function to the middleware stack for all routes
+// app.use('/login', checkPassword) // Add this function to the middleware stack for /login route 
+//                                  // and all methods and children such as /login/admin
 // app.use(logger)   // Use the logger middleware for all routes
 // app.use(putOnly)  // Use this middleware for all routes but only call if method is PUT
 
@@ -32,8 +33,13 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/login/admin', (req, res) => {
-  console.log(`In admin route`)
-  res.send('Visited /login/admin route')
+  console.log(`In GET admin route`)
+  res.send('Visited GET /login/admin route')
+})
+
+app.post('/login/admin', (req, res) => {
+  console.log(`In POST admin route`)
+  res.send('Visited POST /login/admin route')
 })
 
 // Calls middleware just on this route before executing route
